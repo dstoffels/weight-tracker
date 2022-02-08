@@ -2,7 +2,7 @@ const DisplayEntries = props => {
 	const { parentEntries } = props;
 
 	return (
-		<table>
+		<table className='table'>
 			<thead>
 				<tr>
 					<th>Entry No.</th>

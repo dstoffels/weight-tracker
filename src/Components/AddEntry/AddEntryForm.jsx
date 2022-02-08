@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const AddEntryForm = props => {
 	const [weight, setWeight] = useState(0);
-	const [date, setDate] = useState('');
+	const [date, setDate] = useState(new Date().toLocaleDateString());
 
 	function handleWeight(e) {
 		const weightNum = parseFloat(e.target.value);
@@ -21,11 +21,17 @@ const AddEntryForm = props => {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<label htmlFor=''>Weight</label>
-			<input value={weight} onChange={handleWeight} type='number' />
-			<label htmlFor=''>Date</label>
-			<input value={date} onChange={handleDate} type='date' />
-			<button type='submit'>Add</button>
+			<div className='form-group mb-3'>
+				<label>Weight</label>
+				<input className='form-control' value={weight} onChange={handleWeight} type='number' />
+			</div>
+			<div className='form-group mb-3'>
+				<label htmlFor=''>Date</label>
+				<input className='form-control' value={date} onChange={handleDate} type='date' />
+			</div>
+			<button className='btn btn-primary' type='submit'>
+				Log Weight
+			</button>
 		</form>
 	);
 };

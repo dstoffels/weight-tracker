@@ -9,14 +9,15 @@ const EntriesChart = props => {
 		setChartData(tempChartData);
 	}, [props.parentEntries]);
 
-	return (
+	let chart = (
 		<Chart
 			chartType='LineChart'
 			data={[['Date', 'Weight'], ...chartData]}
-			width='100%'
-			height='400px'
+			height='500px'
+			options={{ legend: { position: 'bottom' } }}
 		/>
 	);
+	return chartData.length ? chart : 'No data yet.';
 };
 
 export default EntriesChart;
